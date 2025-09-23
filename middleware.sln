@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessPipeline", "middleware\ProcessPipeline\ProcessPipeline.csproj", "{1C2A2E4E-F37C-4FF2-8118-B614D3B2675F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketAiTeam", "projects\TicketAiTeam\TicketAiTeam\TicketAiTeam.csproj", "{1CCE763C-7EE4-4D95-983F-3F66F39D91DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{1C2A2E4E-F37C-4FF2-8118-B614D3B2675F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C2A2E4E-F37C-4FF2-8118-B614D3B2675F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C2A2E4E-F37C-4FF2-8118-B614D3B2675F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CCE763C-7EE4-4D95-983F-3F66F39D91DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCE763C-7EE4-4D95-983F-3F66F39D91DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCE763C-7EE4-4D95-983F-3F66F39D91DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCE763C-7EE4-4D95-983F-3F66F39D91DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

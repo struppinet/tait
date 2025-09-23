@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using OpenAI.Chat;
 
 using TicketAiTeam.Mcp.Tools.YouTrack;
+using TicketAiTeam.Util;
 using TicketAiTeam.Web.Model;
 
 using YouTrackSharp;
@@ -96,9 +97,11 @@ public sealed class WebhookHandlerBackgroundService : BackgroundService
           break;
 
         case ChatFinishReason.ToolCalls:
+          _logger.LogInformation("Using Tool ...");
           requiresAction = true;
           foreach (var toolCall in completion.Value.ToolCalls)
           {
+            _logger.LogInformation("Tool: {ToolName} ({ToolArguments})", toolCall.FunctionName, toolCall.FunctionArguments);
             switch (toolCall.FunctionName)
             {
               case "GetIssue":
@@ -131,6 +134,7 @@ public sealed class WebhookHandlerBackgroundService : BackgroundService
       if (!requiresAction)
       {
         _logger.LogInformation("Got response: {Response}", completion.Value.Content.FirstOrDefault()?.Text ?? "<empty>");
+        _logger.LogInformation("Return: {Response}", ChatUtil.ClearThinking(completion.Value.Content.FirstOrDefault()?.Text ?? "<empty>"));
       }
     }
   }
