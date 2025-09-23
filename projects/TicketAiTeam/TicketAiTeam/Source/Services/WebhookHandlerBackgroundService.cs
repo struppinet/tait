@@ -111,7 +111,7 @@ public sealed class WebhookHandlerBackgroundService : BackgroundService
 
                 string issueId = issueIdElement.GetString() ?? throw new ArgumentException("Missing issueId");
 
-                var issue = IssueTools.GetIssue(issueId, _connection);
+                var issue = await IssueTools.GetIssue(issueId, _connection);
 
                 messages.Add(new ToolChatMessage(toolCall.Id, JsonSerializer.Serialize(issue)));
                 break;
