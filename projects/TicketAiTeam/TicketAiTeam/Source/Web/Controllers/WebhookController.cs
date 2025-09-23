@@ -23,10 +23,15 @@ public sealed class WebhookController : ControllerBase
   {
     return Ok("Something is happening!");
   }
-  
+
   [HttpPost]
   public async Task<IActionResult> Post([FromBody] WebhookEvent @event)
   {
+    if (!ModelState.IsValid)
+    {
+      return BadRequest(ModelState);
+    }
+
     await _channel.WriteAsync(@event, HttpContext.RequestAborted);
 
     return NoContent();

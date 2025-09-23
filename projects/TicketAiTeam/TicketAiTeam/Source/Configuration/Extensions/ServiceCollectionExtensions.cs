@@ -22,7 +22,7 @@ public static class ServiceCollectionExtensions
 
   public static void AddYouTrackClient(this IServiceCollection services)
   {
-    services.AddScoped<Connection>(provider =>
+    services.AddSingleton<Connection>(provider =>
     {
       var options = provider.GetRequiredService<IOptions<ApplicationOptions>>().Value;
       return new BearerTokenConnection(options.YouTrackUrl, options.YouTrackToken);
